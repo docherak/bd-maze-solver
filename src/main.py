@@ -1,15 +1,27 @@
-from window import Window, Point, Line
+from window import Window, Cell
 
 
 def main():
     win = Window(800, 600)
 
-    a = Point(x=40, y=100)
-    b = Point(x=600, y=300)
+    cell = Cell(win)
+    cell.draw(200, 200, 400, 400)
 
-    line = Line(a, b)
+    cell = Cell(win)
+    cell.has_left_wall = False
+    cell.draw(300, 30, 400, 40)
 
-    win.draw_line(line, "blue")
+    cell = Cell(win)
+    cell.has_right_wall = False
+    cell.draw(400, 100, 500, 200)
+
+    cell = Cell(win)
+    cell.has_bottom_wall = False
+    cell.draw(20, 300, 300, 500)
+
+    cell = Cell(win)
+    cell.has_top_wall = False
+    cell.draw(100, 50, 150, 100)
 
     win.wait_for_close()
 
