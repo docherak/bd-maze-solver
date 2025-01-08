@@ -1,46 +1,4 @@
-from tkinter import Tk, BOTH, Canvas
-
-
-class Window:
-    def __init__(self, width, height):
-        self.__root = Tk()
-        self.__root.title = "Maze solver"
-        self.__canvas = Canvas(self.__root, width=width, height=height, bg="white")
-        self.__canvas.pack(fill=BOTH, expand=1)
-        self.__running = False
-        self.__root.protocol("WM_DELETE_WINDOW", self.close)
-
-    def redraw(self):
-        self.__root.update_idletasks()
-        self.__root.update()
-
-    def wait_for_close(self):
-        self.__running = True
-        while self.__running:
-            self.redraw()
-
-    def close(self):
-        self.__running = False
-
-    def draw_line(self, line, fill_color="black"):
-        line.draw(self.__canvas, fill_color)
-
-
-class Point:
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
-
-
-class Line:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
-    def draw(self, canvas, fill_color="black"):
-        canvas.create_line(
-            self.a.x, self.a.y, self.b.x, self.b.y, fill=fill_color, width=2
-        )
+from graphics import Point, Line
 
 
 class Cell:
@@ -74,8 +32,7 @@ class Cell:
             self.__win.draw_line(line)
 
     def get_center_point(self):
-        return Point((self.__x1+self.__x2)/2,
-                     (self.__y1+self.__y2)/2)
+        return Point((self.__x1 + self.__x2) / 2, (self.__y1 + self.__y2) / 2)
 
     def draw_move(self, to_cell, undo=False):
         from_center = self.get_center_point()

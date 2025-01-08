@@ -1,4 +1,5 @@
-from window import Window, Cell
+from graphics import Window
+from cell import Cell
 
 
 def main():
