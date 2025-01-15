@@ -7,6 +7,7 @@ class Cell:
         self.has_right_wall = True
         self.has_top_wall = True
         self.has_bottom_wall = True
+        self.visited = False
         self.__x1 = None
         self.__x2 = None
         self.__y1 = None
@@ -20,8 +21,8 @@ class Cell:
         self.__y2 = y2
         color = (
             "black" if self.has_left_wall else "white",
-            "black" if self.has_top_wall else "white", 
-            "black" if self.has_right_wall else "white", 
+            "black" if self.has_top_wall else "white",
+            "black" if self.has_right_wall else "white",
             "black" if self.has_bottom_wall else "white"
         )
 
