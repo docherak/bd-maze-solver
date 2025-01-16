@@ -23,7 +23,7 @@ class Cell:
             "black" if self.has_left_wall else "white",
             "black" if self.has_top_wall else "white",
             "black" if self.has_right_wall else "white",
-            "black" if self.has_bottom_wall else "white"
+            "black" if self.has_bottom_wall else "white",
         )
 
         line = Line(Point(x1, y1), Point(x1, y2))
